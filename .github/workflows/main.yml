@@ -6,19 +6,5 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          python-version: '3.10'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
       - name: Run Feed Generator
-        run: python feed.py
-      - name: Push Repo
-        run: |
-          git config user.name Ashutosh
-          git config user.email ashutosh.thunderbird@gmail.com
-          git add .
-          git commit -m "Modified feed file"
-          git push
+        uses: meetashutosh/podcast-generator@main
